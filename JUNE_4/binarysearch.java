@@ -1,3 +1,4 @@
+package JUNE_4;
 public class binarysearch {
     
     public static boolean search(int[] arr,int target){
