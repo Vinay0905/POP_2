@@ -4,7 +4,8 @@ public class InnersudokoSolver {
 
     static int N=9;
     // Checks whether placing number 'c' at (row, col) follows Sudoku rules
-    public static boolean isValid(int[][] board,int row,int col,int c){
+    // public static boolean isValid(int[][] board,int row,int col,int c){
+    public static boolean isValid(char[][] board,int row,int col,char c){
         // Check whether the number already exists in the same column
         for(int i=0;i<N;i++){
             if(board[i][col]==c){
@@ -35,7 +36,8 @@ public class InnersudokoSolver {
     }
     // Solves the Sudoku using Backtracking
     // Returns true when a valid solution is found
-    public static boolean SolveSudoko(int board[][]){
+    // public static boolean SolveSudoko(int board[][]){
+    public static boolean SolveSudoko(char[][] board){
         // Traverse every cell to find the next empty position (0)
         for(int i=0;i<N;i++)
             {
@@ -43,9 +45,9 @@ public class InnersudokoSolver {
                 {
 
                 // If an empty cell is found, try placing numbers 1 to 9
-                if(board[i][j]==0)
+                if(board[i][j]=='.')
                     {
-                    for(int c=1;c<=9;c++ )
+                    for(char c='1';c<='9';c++ )
                         {
                         if(isValid(board,i,j,c))
                             {
@@ -57,7 +59,7 @@ public class InnersudokoSolver {
 
                             }
                             // Backtrack: undo the choice if it leads to no solution
-                            board[i][j]=0;
+                            board[i][j]='.';
 
                         }   
                     }
@@ -70,7 +72,7 @@ public class InnersudokoSolver {
         return true;
     }
     // Displays the solved Sudoku board
-    public static void printBoard(int[][] board) {
+    public static void printBoard(char[][] board) {
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
             System.out.print(board[i][j] + " ");
@@ -81,19 +83,30 @@ public class InnersudokoSolver {
     public static void main(String[] args) {
         // Sample Sudoku puzzle where 0 represents an empty cell
         // Scanner sc=new Scanner(System.in);
-        int board[][] = {
-            {5,3,0,0,7,0,0,0,0},
-            {6,0,0,1,9,5,0,0,0},
-            {0,9,8,0,0,0,0,6,0},
-            {8,0,0,0,6,0,0,0,3},
-            {4,0,0,8,0,3,0,0,1},
-            {7,0,0,0,2,0,0,0,6},
-            {0,6,0,0,0,0,2,8,0},
-            {0,0,0,4,1,9,0,0,5},
-            {0,0,0,0,8,0,0,7,9}
+        // int board[][] = {
+        //     {5,3,0,0,7,0,0,0,0},
+        //     {6,0,0,1,9,5,0,0,0},
+        //     {0,9,8,0,0,0,0,6,0},
+        //     {8,0,0,0,6,0,0,0,3},
+        //     {4,0,0,8,0,3,0,0,1},
+        //     {7,0,0,0,2,0,0,0,6},
+        //     {0,6,0,0,0,0,2,8,0},
+        //     {0,0,0,4,1,9,0,0,5},
+        //     {0,0,0,0,8,0,0,7,9}
+        // };
+        char[][] board_1 = {
+            {'5','3','.','.','7','.','.','.','.'},
+            {'6','.','.','1','9','5','.','.','.'},
+            {'.','9','8','.','.','.','.','6','.'},
+            {'8','.','.','.','6','.','.','.','3'},
+            {'4','.','.','8','.','3','.','.','1'},
+            {'7','.','.','.','2','.','.','.','6'},
+            {'.','6','.','.','.','.','2','8','.'},
+            {'.','.','.','4','1','9','.','.','5'},
+            {'.','.','.','.','8','.','.','7','9'}
         };
-        if(SolveSudoko(board)){
-            printBoard(board);
+        if(SolveSudoko(board_1)){
+            printBoard(board_1);
         }
         else{
             System.out.println("NO BOARD ");
