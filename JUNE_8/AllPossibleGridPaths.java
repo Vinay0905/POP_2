@@ -29,6 +29,7 @@ public class AllPossibleGridPaths {
             if(next_row<end_row&&next_col<end_col){
                 mat[next_row][next_col]=1;
                 solve(mat,next_row,next_col,end_row,end_col);
+                mat[next_row][next_col]=0;
 
             }
             //down
@@ -37,7 +38,7 @@ public class AllPossibleGridPaths {
             if(next_row<end_row&&next_col<end_col){
                 mat[next_row][next_col]=1;
                 solve(mat,next_row,next_col,end_row,end_col);
-
+                mat[next_row][next_col]=0;
             }
         }
 
