@@ -27,7 +27,7 @@ public class LetterCombinationsofaPhoneNumber {
 
     public static List<String> letterCombinations(String digits) {
         List<String> res=new ArrayList<>();
-        String[] map={"","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        String[] map={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
         if(digits.length()==0){
             return res;
         }
@@ -41,6 +41,7 @@ public class LetterCombinationsofaPhoneNumber {
     public static void main(String[] args) {
         String digits="23";
 
-        letterCombinations(digits);
+       List<String> ans= letterCombinations(digits);
+       System.err.println(ans.toString());
     }
 }
