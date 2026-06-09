@@ -74,6 +74,7 @@ class BST{
         }
         return temp.val;
     }
+
     public Integer getInorderPre(int val){
         Node curr=root;
         while(curr!=null && curr.val!=val){
@@ -89,6 +90,7 @@ class BST{
         }
         return inorderPre(curr.left);
     }
+
     private int inorderSuc(Node temp){
         while(temp.left!=null){
             temp=temp.left;
@@ -109,7 +111,7 @@ class BST{
             //3 types :- 
                 // 1) left side no child 
                 // 2) right side no child 
-                // 3) no child atall
+                // 3) 2 child.
             if(root.left==null )return root.right;
             if (root.right==null)return root.left;
             //changes the curr val with the inordersuccessor value
