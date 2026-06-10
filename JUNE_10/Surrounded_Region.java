@@ -1,9 +1,21 @@
 package JUNE_10;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class Surrounded_Region {
+
+    public static void dfs(List<List<Integer>> adjList,int v,int start ,boolean[] vis ){
+        vis[start]=true;
+        System.out.println(start+" ");
+        for(int i=0;i<adjList.get(start).size();i++){
+            if(vis[adjList.get(start).get(i)]==false){
+                dfs(adjList, v, adjList.get(start).get(i), vis);
+            }
+        }
+    }
+
     public static void solve(char[][] board) {
         int m=board.length;
         int n=board[0].length;
