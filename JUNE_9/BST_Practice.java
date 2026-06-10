@@ -23,9 +23,19 @@ class BST{
     public void insert(int val){
         root=insertNode(root,val);
     }
-    // public Node insertNode(Node root,int val){
+    public Node insertNode(Node root,int val){
+        if(root==null){
+            return new Node(val);
+        }
+        if(val<root.val){
+            root.left=insertNode(root.left, val);
 
-    // }
+        }
+        else if (val>root.val){
+            root.right=insertNode(root.right, val);
+        }
+        return root;
+    }
 
 
 }
