@@ -15,11 +15,13 @@ public class AllPossibleGridPaths {
         }
         System.out.println();
     }
+    static int count=0;
     public static void solve(int[][] mat,int row,int col,int end_row,int end_col){
 
 
         if(row==end_row-1 && col==end_col-1){
-            display(mat,end_row,end_col);
+            // display(mat,end_row,end_col);
+            count++;
             return ;
         }
         else{
@@ -54,6 +56,7 @@ public class AllPossibleGridPaths {
         int[][] mat=new int[n][m];
         mat[0][0]=1;
         solve(mat, 0, 0, n, n);
+        System.out.println(count);
         sc.close();
 
 
