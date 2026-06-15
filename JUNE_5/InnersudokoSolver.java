@@ -1,9 +1,12 @@
 package JUNE_5;
 
+// Approach: Use backtracking to fill empty Sudoku cells.
+// Try digits 1 to 9, keep valid choices, and undo wrong choices.
 public class InnersudokoSolver {
 
     static int N=9;
-    // Checks whether placing number 'c' at (row, col) follows Sudoku rules
+    // This checks if placing number c at row and col is valid.
+    // It checks the same row, same column, and same 3x3 box.
     // public static boolean isValid(int[][] board,int row,int col,int c){
     public static boolean isValid(char[][] board,int row,int col,char c){
         // Check whether the number already exists in the same column
@@ -34,8 +37,8 @@ public class InnersudokoSolver {
 
         return true;
     }
-    // Solves the Sudoku using Backtracking
-    // Returns true when a valid solution is found
+    // This solves Sudoku using backtracking.
+    // It finds an empty cell, tries digits, and returns true when solved.
     // public static boolean SolveSudoko(int board[][]){
     public static boolean SolveSudoko(char[][] board){
         // Traverse every cell to find the next empty position (0)
@@ -71,7 +74,7 @@ public class InnersudokoSolver {
         // No empty cells left, Sudoku is solved
         return true;
     }
-    // Displays the solved Sudoku board
+    // This prints the Sudoku board row by row.
     public static void printBoard(char[][] board) {
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
@@ -80,6 +83,7 @@ public class InnersudokoSolver {
         System.out.println();
     }
 }
+    // This creates one Sudoku puzzle and prints the solved board.
     public static void main(String[] args) {
         // Sample Sudoku puzzle where 0 represents an empty cell
         // Scanner sc=new Scanner(System.in);

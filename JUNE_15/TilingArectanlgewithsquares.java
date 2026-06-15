@@ -1,8 +1,12 @@
 package JUNE_15;
 
+// Approach: Use backtracking to fill the rectangle with squares.
+// Always pick the first empty cell and try the biggest square first.
 public class TilingArectanlgewithsquares {
         
     static int ans=0;
+    // This creates the rectangle grid and starts the search.
+    // It returns the minimum number of squares needed.
     public static int tilingRectangle(int n, int m) {
         int[][] rectangle=new int[n][m];
         ans=Integer.MAX_VALUE;
@@ -10,6 +14,8 @@ public class TilingArectanlgewithsquares {
         return ans;
     }
 
+    // This checks if a k by k square can fit at x, y.
+    // It must stay inside the rectangle and use only empty cells.
     public static boolean canPlace(int[][] rec,int x,int y,int k,int n,int m){
         for(int i=x;i<x+k;i++){
             for(int j=y;j<y+k;j++){
@@ -21,6 +27,8 @@ public class TilingArectanlgewithsquares {
         return true;
     }
 
+    // This fills or clears a k by k square.
+    // val is 1 for placing and 0 for removing.
     public static void place(int[][] rect,int x,int y,int k,int val){
         int i,j;
         for(i=x;i<x+k;i++){
@@ -29,6 +37,8 @@ public class TilingArectanlgewithsquares {
             }
         }
     }
+    // This tries all square placements using backtracking.
+    // It stops early when current count is already worse than answer.
     public static void solve(int[][] rect,int c,int n,int m){
         if(c>=ans){
             return;
@@ -58,6 +68,7 @@ public class TilingArectanlgewithsquares {
             }
         }
     }
+    // This tests rectangle tiling for one sample size.
     public static void main(String[] args) {
         
 

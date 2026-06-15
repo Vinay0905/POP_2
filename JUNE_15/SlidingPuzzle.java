@@ -5,9 +5,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
+// Approach: Convert the board into a string and use BFS.
+// Each move swaps 0 with a valid neighbor until target state is found.
 public class SlidingPuzzle {
     
 
+    // This swaps two positions in the puzzle string.
     public static String swap(String curr,int i,int j){
         char[] chr=curr.toCharArray();
         char t=chr[i];
@@ -16,6 +19,8 @@ public class SlidingPuzzle {
         return new String(chr);
     }
 
+    // This returns minimum moves needed to solve the puzzle.
+    // If target state cannot be reached, it returns -1.
     public static int slidingPuzzle(int[][] board) {
         String s="";
         for(int[] r:board){
@@ -52,6 +57,7 @@ public class SlidingPuzzle {
         return -1;
 
     }
+    // This tests sliding puzzle with a sample board.
     public static void main(String[] args) {
         int[][] mat={{1,2,3},{4,0,5}};
         System.out.println(slidingPuzzle(mat));

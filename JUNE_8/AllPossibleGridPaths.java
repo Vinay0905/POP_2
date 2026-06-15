@@ -2,9 +2,13 @@ package JUNE_8;
 
 import java.util.Scanner;
 
+// Approach: Use recursion to move only right or down in the grid.
+// Count every path that reaches the bottom-right cell.
 public class AllPossibleGridPaths {
     
 
+    // This prints the grid path matrix.
+    // It is useful when you want to see each path.
     public static void display(int[][] mat,int n,int m){
         int i,j;
         for(i=0;i<n;i++){
@@ -16,6 +20,8 @@ public class AllPossibleGridPaths {
         System.out.println();
     }
     static int count=0;
+    // This counts all paths from current cell to the end cell.
+    // It tries going right and down, then backtracks.
     public static void solve(int[][] mat,int row,int col,int end_row,int end_col){
 
 
@@ -47,6 +53,7 @@ public class AllPossibleGridPaths {
 
     }
 
+    // This creates a sample grid and prints total path count.
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         // int n=sc.nextInt();

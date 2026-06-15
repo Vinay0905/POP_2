@@ -3,9 +3,13 @@ package JUNE_10;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// Approach: Scan the grid and start BFS whenever land '1' is found.
+// BFS marks the full island as water so it is counted only once.
 public class NumberOfIslands {
     
 
+    // This visits all connected land cells from one starting cell.
+    // It changes visited land from '1' to '0'.
     public static void BFS(char[][] grid,int i,int j){
 
         Queue<int[]> q=new LinkedList<>();
@@ -31,6 +35,7 @@ public class NumberOfIslands {
         }
 
     }
+    // This counts how many separate islands are present in the grid.
     public static int numIslands(char[][] grid) {
         int n=grid.length;
         int m=grid[0].length;
@@ -47,6 +52,7 @@ public class NumberOfIslands {
         return c;
     }
 
+    // This tests island counting on a sample grid.
     public static void main(String[] args) {
 
 

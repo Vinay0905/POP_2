@@ -2,9 +2,13 @@ package JUNE_5;
 
 import java.util.ArrayList;
 
+// Approach: Use backtracking to place queens row by row.
+// For each row, try every column and keep only safe positions.
 public class NQueens {
 
 
+    // This checks if a queen can be placed at row and col.
+    // It checks column and both upper diagonals.
     public static int isSafe(int[][] mat,int row,int col){
         int n=mat.length;
         int i,j;
@@ -21,6 +25,8 @@ public class NQueens {
         return 1;
     }
 
+    // This places queens using recursion.
+    // When all rows are filled, it saves one valid answer.
     public static void placeQueens(int row,int[][] mat,ArrayList<ArrayList<Integer>> res){
         int n=mat.length;
         if(row==n){
@@ -45,6 +51,7 @@ public class NQueens {
         }
     }
 
+    // This creates the board and starts solving N Queens.
     public static ArrayList<ArrayList<Integer>> nQueen(int n){
 
         int [][] mat=new int[n][n];
@@ -52,6 +59,7 @@ public class NQueens {
         placeQueens(0, mat, res);
         return res;
     }
+    // This prints all answers for a sample board size.
     public static void main(String[] args) {
         
         int n=4;

@@ -7,8 +7,12 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
+// Approach: Use BFS where each word is one step.
+// Change one character at a time and move only to words in the dictionary.
 public class WordLadder {
     
+    // This returns the shortest number of words from beginWord to endWord.
+    // If endWord cannot be reached, it returns 0.
     public static int ladderLength(String beginWord, String endWord, List<String> wordList) {
         Set<String> dict=new HashSet<>(wordList);
         if(dict.contains(endWord)==false){
@@ -48,6 +52,7 @@ public class WordLadder {
         return 0;
 
     }
+    // This tests word ladder with a sample word list.
     public static void main(String[] args) {
     
 

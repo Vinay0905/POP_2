@@ -3,9 +3,13 @@ package JUNE_8;
 import java.util.ArrayList;
 import java.util.List;
 
+// Approach: Use divide and conquer to split buildings into small skylines.
+// Then merge left and right skylines while keeping only height changes.
 public class TheSkylineProblem {
     
 
+    // This merges two skyline lists into one skyline.
+    // It keeps the current height from both sides and stores only changes.
     public static List<int[]> merge(List<int[]> left, List<int[]> right) {
         List<int[]> res = new ArrayList<>();
 
@@ -55,6 +59,8 @@ public class TheSkylineProblem {
         return res;
     }
 
+    // This builds skyline points for buildings from start to end.
+    // It splits the range and merges the two answers.
     public static List<int[]> build(int[][] buildings , int start,int end ){
         if(start>end){
             return new ArrayList<>();
@@ -74,6 +80,7 @@ public class TheSkylineProblem {
         return merge(left, right);
     }
 
+    // This converts the final skyline points into list format.
     public static List<List<Integer>> getSkyline(int[][] buildings) {
         int n=buildings.length;
         if(n==0){
@@ -92,6 +99,7 @@ public class TheSkylineProblem {
 
         return ans;
     }
+    // This tests the skyline answer for sample buildings.
     public static void main(String[] args) {
         int[][] buildings = {{2,9,10},{3,7,15},{5,12,12},{15,20,10},{19,24,8}};
 

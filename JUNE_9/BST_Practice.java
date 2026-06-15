@@ -1,3 +1,5 @@
+// Approach: This file keeps old BST practice code as comments.
+// The working BST code is in BST_INtro.java.
 // package JUNE_9;
 
 

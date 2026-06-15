@@ -6,9 +6,13 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 
+// Approach: Store the graph using adjacency lists.
+// Then use BFS with a queue to visit nodes level by level.
 public class Graph_List_Representation {
     
 
+    // This runs BFS from a start node.
+    // It uses visited array so each node is printed once.
     public static void BFS(List<List<Integer>> adjList,int v,int start){
         boolean[] visited=new boolean[v];
         Queue<Integer> q=new LinkedList<>();
@@ -29,6 +33,7 @@ public class Graph_List_Representation {
         }
     }
 
+    // This reads the graph, prints adjacency list, and runs BFS.
     public static void main(String[] args) {
         
         Scanner sc=new Scanner(System.in);

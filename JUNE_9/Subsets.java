@@ -3,9 +3,13 @@ package JUNE_9;
 import java.util.ArrayList;
 import java.util.List;
 
+// Approach: Generate all subsets in two ways.
+// One uses backtracking, and the other uses bit masks.
 public class Subsets {
     
 
+        // This builds subsets by choosing or skipping values from the start index.
+        // It stores the current subset before trying more values.
         public static void solve(int[] nums,List<Integer> ans,List<List<Integer>> res,int start){
             res.add(new ArrayList<>(ans));
             for(int i=start;i<nums.length;i++){
@@ -16,6 +20,7 @@ public class Subsets {
         }
 
 
+        // This prepares lists and starts the backtracking method.
         public static List<List<Integer>> subsets(int[] nums) {
             
 
@@ -26,6 +31,8 @@ public class Subsets {
         }
 
 
+    // This creates subsets using bits of numbers from 0 to 2^n - 1.
+    // If a bit is set, that array value is included.
     public static List<List<Integer>> bitwiseSolution(int[] arr){
         List<List<Integer>> res=new ArrayList<>();
         int n=arr.length;
@@ -42,6 +49,7 @@ public class Subsets {
         }
         return res;
     }
+    // This prints subsets using both methods for a sample array.
     public static void main(String[] args) {
         
         int[] arr={1,2,3};

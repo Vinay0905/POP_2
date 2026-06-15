@@ -1,3 +1,5 @@
+// Approach: This file keeps old practice code as comments.
+// The active versions are in GenerateParentheses.java and TheSkylineProblem.java.
 // package JUNE_8;
 
 // import java.util.ArrayList;

@@ -2,8 +2,11 @@ package JUNE_10;
 
 import java.util.Scanner;
 
+// Approach: Store the graph using an adjacency matrix.
+// For every edge, mark both directions because this is an undirected graph.
 public class Graph_Intro {
 
+    // This reads edges and prints the adjacency matrix.
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);

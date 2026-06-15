@@ -3,9 +3,13 @@ package JUNE_10;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// Approach: Use BFS from all rotten oranges at the same time.
+// Each BFS level means one minute passes.
 public class RottenOranges {
     
 
+    // This returns minutes needed to rot all fresh oranges.
+    // If some fresh orange cannot rot, it returns -1.
     public static  int orangesRotting(int[][] grid) {
         int min=0;
         int fresh=0;
@@ -43,6 +47,7 @@ public class RottenOranges {
         
         return fresh == 0 ? min : -1;
     }
+    // This tests rotten oranges on a sample grid.
     public static void main(String[] args) {
         int[][] grid = {
             {2, 1, 1},

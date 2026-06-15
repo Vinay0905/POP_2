@@ -1,7 +1,11 @@
 package JUNE_4;
 
+// Approach: Use two pointers, one from start and one from end.
+// Compare both characters and move inward until they meet.
 public class StringPalindrome {
     
+    // This checks if the string reads the same from both sides.
+    // If any pair of characters is different, it returns false.
     public static boolean palindrome(String s){
         if (s==null)return false;
 
@@ -15,6 +19,7 @@ public class StringPalindrome {
         return true;
 
     }
+    // This tests the palindrome function with one sample string.
     public static void main(String[] args) {
         String s="racecar";
         if(palindrome(s)){

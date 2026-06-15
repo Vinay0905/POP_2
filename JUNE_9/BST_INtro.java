@@ -1,5 +1,7 @@
 package JUNE_9;
 
+// Approach: Build a Binary Search Tree where left values are smaller and right values are bigger.
+// Use recursion for insert, search, traversal, delete, and validation.
 
 class Node{
     int val;
@@ -18,11 +20,14 @@ class BST{
         root=null;
     }
     //Insert---------------------------------------------------------------------------------------------------------
+    // This starts insertion from the root.
     public void insert(int val){
         root=insertNode(root,val);
     }
 
 
+    // This inserts a value at the correct place in BST.
+    // Smaller values go left and bigger values go right.
     public Node insertNode(Node root,int val){
         if(root==null){
             return new Node(val);
@@ -40,10 +45,13 @@ class BST{
     
 
     //Search---------------------------------------------------------------------------------------------------------
+    // This starts searching from the root.
     boolean search(int val){
         return searchRec(root,val);
     }
 
+    // This searches a value using BST rules.
+    // It goes left or right based on comparison.
     boolean searchRec(Node root,int val){
         if(root==null){
             return false;
@@ -55,9 +63,12 @@ class BST{
     }
 
     //Inorder------------------------------------------------------------------------------------------------------------------------------
+    // This starts inorder traversal from the root.
     void inorder(){
         inorderRec(root);
     }
+    // This prints the tree in sorted order.
+    // It visits left, root, then right.
     void inorderRec(Node root){
         if(root==null){
             return;
@@ -67,6 +78,7 @@ class BST{
         inorderRec(root.right);
     }
     
+    // This finds the largest value in the left subtree.
     private int inorderPre(Node temp){
         while(temp.right!=null){
             temp=temp.right;
@@ -75,6 +87,8 @@ class BST{
         return temp.val;
     }
 
+    // This finds inorder predecessor for a given value.
+    // It returns null if value or left subtree is missing.
     public Integer getInorderPre(int val){
         Node curr=root;
         while(curr!=null && curr.val!=val){
@@ -91,6 +105,7 @@ class BST{
         return inorderPre(curr.left);
     }
 
+    // This finds the smallest value in the right subtree.
     private int inorderSuc(Node temp){
         while(temp.left!=null){
             temp=temp.left;
@@ -99,10 +114,13 @@ class BST{
         return temp.val;
     }
     //Deletion---------------------------------------------------------------------------------------------------------
+    // This starts deletion from the root.
     void delete(int val){
         root=deleteNode(root,val);
 
     }
+    // This deletes a value from BST.
+    // It handles leaf, one child, and two child cases.
     Node deleteNode(Node root, int val){
         if(root==null)return null;
         if(val<root.val)root.left=deleteNode(root.left, val);
@@ -124,9 +142,12 @@ class BST{
     }
     
     //Validation------------------------------------------------------------------------------------------------------------------------------
+    // This checks if the tree follows BST rules.
     public boolean isValidBST(Node root) {
         return isValid(root,null,null) ;
     }
+    // This validates each node using min and max allowed limits.
+    // Left side must stay smaller and right side must stay bigger.
     public boolean isValid(Node root,Integer min, Integer max){
 
         if(root==null){
@@ -147,6 +168,7 @@ class BST{
 
 
 public class BST_INtro {
+    // This creates a sample BST and tests its main operations.
     public static void main(String[] args) {
         BST tree=new BST();
 

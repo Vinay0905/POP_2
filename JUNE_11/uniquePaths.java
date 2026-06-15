@@ -2,9 +2,13 @@ package JUNE_11;
 
 // DP Concept using - memoaization
 
+// Approach: Count paths from top-left to bottom-right.
+// Each cell gets ways from top plus ways from left.
 
 public class uniquePaths {
     
+    // This is a memo recursion for unique paths.
+    // It returns 1 at start and 0 outside the grid.
     public static int memo(int i , int j,int[][] dp){
         if(i==-1 || j==-1)return 0;
         if(i==0 && j==0)return 1;
@@ -16,6 +20,7 @@ public class uniquePaths {
         }
     }
     
+    // This fills a DP table and prints number of paths.
     public static void main(String[] args) {
         int m=3, n=3;
         int[][] dp=new int[m+1][n+1];

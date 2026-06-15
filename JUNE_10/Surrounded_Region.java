@@ -4,8 +4,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+// Approach: Border 'O' cells cannot be captured, so mark them first using BFS.
+// Then change remaining 'O' to 'X' and restore safe cells.
 public class Surrounded_Region {
 
+    // This is a normal DFS helper for graph practice.
+    // It prints all reachable nodes from start.
     public static void dfs(List<List<Integer>> adjList,int v,int start ,boolean[] vis ){
         vis[start]=true;
         System.out.println(start+" ");
@@ -16,6 +20,8 @@ public class Surrounded_Region {
         }
     }
 
+    // This solves surrounded regions on the board.
+    // It protects border-connected 'O' cells and flips the rest.
     public static void solve(char[][] board) {
         int m=board.length;
         int n=board[0].length;
@@ -77,6 +83,7 @@ public class Surrounded_Region {
         }
 
     }
+    // This tests surrounded region logic on a sample board.
     public static void main(String[] args) {
 
         char[][] board = {

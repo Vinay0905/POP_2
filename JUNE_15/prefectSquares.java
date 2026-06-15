@@ -6,7 +6,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
+// Approach: Use BFS from n by subtracting perfect squares.
+// Each BFS level means using one more square.
 public class prefectSquares {
+    // This finds the least number of perfect squares needed to make n.
+    // It returns when subtraction reaches 0.
     public static int BFS(int n){
         Queue<Integer> q=new LinkedList<>();
         Set<Integer> set=new HashSet<>();
@@ -34,9 +38,11 @@ public class prefectSquares {
         }
         return level;
     }
+    // This starts the BFS solution.
     public static int numSquares(int n){
         return BFS(n);
     }
+    // This tests the perfect squares answer for one number.
     public static void main(String[] args) {
         int n = 12;
         System.out.println(numSquares(n));

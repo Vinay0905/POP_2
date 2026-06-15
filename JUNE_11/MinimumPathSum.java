@@ -1,8 +1,12 @@
 package JUNE_11;
 
+// Approach: Use dynamic programming on the grid.
+// Each cell stores the minimum sum needed to reach that cell.
 public class MinimumPathSum {
     
 
+    // This builds a dp table and returns the minimum path sum.
+    // From each cell, we can come only from top or left.
     public static int dpfunc(int n,int m,int[][] grid){
         int [][] dp=new int[n][m];
         dp[0][0]=grid[0][0];
@@ -19,6 +23,7 @@ public class MinimumPathSum {
         return dp[n-1][m-1];
         
     }
+    // This tests minimum path sum on a sample grid.
     public static void main(String[] args) {
         int[][] grid={{1,3,1},{1,5,1},{4,2,1}};
         int n=grid.length;

@@ -1,7 +1,11 @@
 package JUNE_12;
 
+// Approach: Compare two strings from the end.
+// Use recursion, memoization, and tabulation to find LCS length.
 public class LongestCommonSubsequence {
     
+    // This finds LCS length using plain recursion.
+    // If characters match, take both; else try skipping one side.
     public static int LCS(String s1,String s2,int i,int j){
 
 
@@ -18,6 +22,8 @@ public class LongestCommonSubsequence {
     }
 
 
+    // This is the memoization version of LCS.
+    // It stores answers in dp to avoid repeated work.
     public static int memo(String s1,String s2,int i,int j, int[][] dp){
          if(i==-1 || j==-1){
             return 0;
@@ -30,6 +36,8 @@ public class LongestCommonSubsequence {
         }
     }
 
+    // This fills the LCS table from small prefixes to full strings.
+    // The bottom-right cell gives the final LCS length.
     public static int dynamicPrograming(String s1, String s2, int[][] dp) {
 
     for (int i = 0; i <= s1.length(); i++) {
@@ -49,6 +57,7 @@ public class LongestCommonSubsequence {
     return dp[s1.length()][s2.length()];
     }
 
+    // This tests all three LCS methods on sample strings.
     public static void main(String[] args) {
         String text1 = "abcde", text2 = "ace" ;
 

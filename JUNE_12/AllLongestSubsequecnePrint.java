@@ -7,9 +7,13 @@ import java.util.HashSet;
 
 import java.util.Set;
 
+// Approach: First build the LCS length table using DP.
+// Then backtrack through the table to collect all longest subsequences.
 public class AllLongestSubsequecnePrint {
     
 
+    // This backtracks through the DP table to build all LCS strings.
+    // The string is built backward, so it is reversed before storing.
     public static void solve(String s1,String s2,int i,int j,Set<String> set,int[][] dp,String s){
 
         if(dp[i][j]==0)set.add(new StringBuilder(s).reverse().toString());
@@ -27,6 +31,8 @@ public class AllLongestSubsequecnePrint {
 
     }
     
+    // This fills the DP table and returns all LCS answers in sorted order.
+    // A set is used to avoid duplicate subsequences.
     public static ArrayList<String> allLCS(String s1, String s2,int[][] dp) {
         // code here
         
@@ -56,6 +62,7 @@ public class AllLongestSubsequecnePrint {
         
 
     }
+    // This tests all LCS printing with two sample strings.
     public static void main(String[] args) {
         String text1 = "abcde", text2 = "ace" ;
         int[][] dp=new int[text1.length()+1][text2.length()+1];
